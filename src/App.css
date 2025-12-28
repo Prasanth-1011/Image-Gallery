@@ -148,7 +148,7 @@ section {
 }
 
 .selected__gallery {
-    scroll-padding-top: 10rem;
+    scroll-margin-top: 8rem;
 }
 
 .selected__gallery h2 {
