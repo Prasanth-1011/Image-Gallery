@@ -51,8 +51,5 @@ export const galleryArray = [
     { album: "Children", images: childrenArray, thumbnail: childrenArray[3].src },
     { album: "Animals", images: animalsArray, thumbnail: animalsArray[7].src },
     { album: "Cars", images: carsArray, thumbnail: carsArray[7].src },
-    { album: "Kids", images: childrenArray, thumbnail: childrenArray[7].src },
-    { album: "Animals", images: animalsArray, thumbnail: animalsArray[5].src },
-    { album: "Cars", images: carsArray, thumbnail: carsArray[5].src },
-    { album: "Children", images: childrenArray, thumbnail: childrenArray[5].src }
+    { album: "Kids", images: childrenArray, thumbnail: childrenArray[7].src }
 ];
