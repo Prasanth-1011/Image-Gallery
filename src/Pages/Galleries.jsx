@@ -32,7 +32,7 @@ function Galleries() {
 
     return (
         <>
-            <section className="gallery flex-center" ref={reference}>
+            <section className="gallery flex-center">
                 <h5 className={`gallery__message top ${hover === "active"}`}>Click And View {name.album} Images Down Here</h5>
                 <div className="gallery__container">
                     {
@@ -56,7 +56,7 @@ function Galleries() {
                     photos && (
                         <section className="selected__gallery">
                             <h2>{photos.album}  Images ({photos.images.length})</h2>
-                            <div className="selected__container">
+                            <div className="selected__container" ref={reference}>
                                 {
                                     photos.images.map(function (image, index) {
                                         return (
