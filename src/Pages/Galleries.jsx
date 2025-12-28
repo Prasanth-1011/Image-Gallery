@@ -54,9 +54,9 @@ function Galleries() {
 
                 {
                     photos && (
-                        <section className="selected__gallery">
+                        <section className="selected__gallery" ref={reference}>
                             <h2>{photos.album}  Images ({photos.images.length})</h2>
-                            <div className="selected__container" ref={reference}>
+                            <div className="selected__container">
                                 {
                                     photos.images.map(function (image, index) {
                                         return (
