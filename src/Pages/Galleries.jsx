@@ -1,27 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { galleryArray } from '../Arrays';
-import Image from '../Components/Image';
+import Image, { ImageDetail } from '../Components/Image';
 
 function Galleries() {
     const [hover, setHover] = useState(null);
     const [photos, setPhotos] = useState(null);
     const [name, setName] = useState("");
+    const [device, setDevice] = useState(false);
+    const reference = useRef(null);
 
-    const handleClick = (album) => setPhotos(album)
+    useEffect(() => {
+        setDevice(window.matchMedia("(pointer: coarse)").matches);
+    }, []);
+
+    const handleClick = (album) => {
+        setPhotos(album)
+        reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 
     function hovered(album, index, value) {
-        if (value) {
-            index < 3 ? setHover("active") : setHover("passive");
-            setName(album);
+        if (!device) {
+            if (value) {
+                index < 3 ? setHover("active") : setHover("passive");
+                setName(album);
 
-        } else {
-            setHover(null)
+            } else {
+                setHover(null)
+            }
         }
     }
 
     return (
         <>
-            <section className="gallery flex-center">
+            <section className="gallery flex-center" ref={reference}>
                 <h5 className={`gallery__message top ${hover === "active"}`}>Click And View {name.album} Images Down Here</h5>
                 <div className="gallery__container">
                     {
@@ -30,8 +41,6 @@ function Galleries() {
                                 <div key={index} className="gallery__container__album" onClick={() => handleClick(album)}
                                     onMouseEnter={() => hovered(album, index, "active")}
                                     onMouseLeave={() => hovered(album, "")}
-                                    onTouchStart={() => hovered(album, index, "active")}
-                                    onTouchEnd={() => hovered(album, "")}
                                 >
                                     <Image name={album.thumbnail} alt={album.album} />
                                     <h3>{album.album}</h3>
@@ -52,7 +61,7 @@ function Galleries() {
                                     photos.images.map(function (image, index) {
                                         return (
                                             <div key={index} className="selected__container__image">
-                                                <Image name={image.src} alt={image.alt} />
+                                                <ImageDetail name={image.src} alt={image.alt} description={image.description} />
                                             </div>
                                         )
                                     })

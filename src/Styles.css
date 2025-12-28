@@ -27,6 +27,10 @@
         border-radius: 1rem;
     }
 
+    .selected__container h3 {
+        font-size: large;
+    }
+
     /* Contact */
     .contact__input,
     .contact__textarea {
@@ -67,5 +71,17 @@
     .contact__input,
     .contact__textarea {
         width: 25rem;
+    }
+
+    /* Footer */
+    footer nav span {
+        font-size: larger;
+    }
+}
+
+@media screen and (width > 992px) {
+    .home__container {
+        gap: 1rem;
+        grid-template-columns: repeat(5, 19%);
     }
 }
