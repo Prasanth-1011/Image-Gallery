@@ -147,6 +147,10 @@ section {
     color: black;
 }
 
+.selected__gallery {
+    scroll-padding-top: 10rem;
+}
+
 .selected__gallery h2 {
     padding: 1rem;
     text-align: center;
