@@ -59,6 +59,10 @@
     }
 
     /* Gallery */
+    .selected__gallery {
+        scroll-margin-top: 12rem;
+    }
+    
     .selected__gallery h2 {
         padding: 0 1rem 2rem;
     }
