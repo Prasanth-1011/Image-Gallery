@@ -13,9 +13,14 @@ function Galleries() {
         setDevice(window.matchMedia("(pointer: coarse)").matches);
     }, []);
 
+    useEffect(() => {
+        if (photos) {
+            reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }, [photos]);
+
     const handleClick = (album) => {
-        setPhotos(album)
-        reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        setPhotos(album);
     }
 
     function hovered(album, index, value) {
@@ -23,7 +28,6 @@ function Galleries() {
             if (value) {
                 index < 3 ? setHover("active") : setHover("passive");
                 setName(album);
-
             } else {
                 setHover(null)
             }
